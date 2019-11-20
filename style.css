@@ -1,6 +1,8 @@
 body {
   margin: 5% 10%;
-  background-color: rgb(29,161,242);
+  background-image: linear-gradient(to bottom right, rgb(46, 46, 73), rgb(12, 12, 20));
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .like {
