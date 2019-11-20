@@ -2,9 +2,59 @@
 const EMPTY_HEART = '♡'
 const FULL_HEART = '♥'
 
+const errorBar = document.querySelector('#modal')
 // Your JavaScript code goes here!
 
+document.addEventListener('click', (event) => {
 
+    const target = event.target
+
+    let likeButton;
+
+    if (target.tagName == "LI") {
+
+        likeButton = target.childNodes[1];
+
+    } else if (target.tagName == "SPAN") {
+
+        likeButton = target;
+
+    }
+
+    if (target.tagName == "LI" || target.parentNode.tagName == "LI") {
+
+        mimicServerCall()
+
+        .then(res => {
+
+            console.log(res)
+            errorBar.classList.add("hidden");
+            
+            if (likeButton.textContent == FULL_HEART) {
+
+                likeButton.textContent = EMPTY_HEART;
+                likeButton.classList.remove("activated-heart")
+
+            } else {
+
+                likeButton.textContent = FULL_HEART;
+                likeButton.classList.add("activated-heart")
+
+            }
+
+        })
+
+        .catch( () => {
+
+            errorBar.classList.remove("hidden");
+
+        });
+
+
+
+    };
+
+});
 
 
 //------------------------------------------------------------------------------
@@ -20,6 +70,6 @@ function mimicServerCall(url="http://mimicServer.example.com", config={}) {
       } else {
         resolve("Pretend remote server notified of action!");
       }
-    }, 300);
+    }, 100);
   });
-}
+};
