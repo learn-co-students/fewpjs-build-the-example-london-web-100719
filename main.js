@@ -16,14 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   );
 
-  function displayError(err) {
-    errModal.className = "";
-    errModal.innerText = err;
-    setTimeout(function() {
-      errModal.className = "hidden";
-    }, 3000);
-  }
-
   function clickedLikeButton(btn) {
     btn.classList.toggle("activated-heart");
     btn.className == "like-glyph activated-heart"
@@ -31,6 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
       : (btn.innerText = EMPTY_HEART);
   }
 });
+
+function displayError(err) {
+  errModal.className = "";
+  errModal.innerText = err;
+  setTimeout(function() {
+    errModal.className = "hidden";
+  }, 3000);
+}
 
 //------------------------------------------------------------------------------
 // Ignore after this point. Used only for demo purposes
