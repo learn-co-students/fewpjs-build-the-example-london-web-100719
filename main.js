@@ -25,13 +25,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function clickedLikeButton(btn) {
-    if (btn.className === "like-glyph activated-heart") {
-      btn.className = "like-glyph";
-      btn.innerText = EMPTY_HEART;
-    } else {
-      btn.className = "like-glyph activated-heart";
-      btn.innerText = FULL_HEART;
-    }
+    btn.classList.toggle("activated-heart");
+    btn.className == "like-glyph activated-heart"
+      ? (btn.innerText = FULL_HEART)
+      : (btn.innerText = EMPTY_HEART);
   }
 });
 
